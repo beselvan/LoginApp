@@ -1,0 +1,12 @@
+version: '3'
+services:
+  web:
+    image: tamileng/demo_tomcat:1.1
+    ports:
+     - "8080:8080"
+    links:
+     - dbserver
+  dbserver:
+    image: tamileng/demo_mysql
+    ports:
+     - "3306:3306"
