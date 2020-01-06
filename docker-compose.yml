@@ -7,6 +7,6 @@ services:
     links:
      - dbserver
   dbserver:
-    image: tamileng/login_mysql
+    image: tamileng/login_mysql:1.0
     ports:
      - "3306:3306"
