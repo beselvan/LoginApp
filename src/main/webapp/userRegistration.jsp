@@ -13,7 +13,6 @@ Context ctx = new InitialContext();
 DataSource ds = (DataSource)ctx.lookup("java:comp/env/jdbc/MyDB");
 Class.forName("com.mysql.jdbc.Driver"); 
 Connection con = ds.getConnection();
-System.out.println(connection);
 Statement st=con.createStatement();
 con = ds.getConnection();
 st=con.createStatement();
