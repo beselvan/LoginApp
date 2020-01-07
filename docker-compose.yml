@@ -2,11 +2,13 @@ version: '3'
 services:
   web:
     build: .
+    restart: always
     ports:
      - "8081:8080"
     links:
      - dbserver
   dbserver:
     image: tamileng/login_mysql:1.0
+    restart: always
     ports:
      - "3306:3306"
