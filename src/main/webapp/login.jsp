@@ -21,7 +21,7 @@ st=con.createStatement();
 	if (rs.next()) 
 		{ 
 			session.setAttribute("userid", userName); 
-			response.sendRedirect("success.jsp"); 
+			response.sendRedirect("home.jsp"); 
 		} 
 	else 
 		{ 
