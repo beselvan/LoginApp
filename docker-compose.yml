@@ -1,6 +1,7 @@
 version: '3'
 services:
   web:
+    container_name: tomcat
     build: .
     restart: always
     ports:
@@ -9,6 +10,7 @@ services:
      - dbserver
   dbserver:
     image: tamileng/login_mysql:1.0
+    container_name: mysql
     restart: always
     ports:
      - "3306:3306"
