@@ -1,6 +1,10 @@
 <%@ page language="java" import="java.io.IOException,java.io.IOException,java.sql.Connection,java.sql.ResultSet,java.sql.Statement,java.util.*,javax.naming.*,javax.servlet.*,javax.servlet.http.*,javax.sql.*" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-
+<script type="text/javascript">
+function alertName(){
+alert("pls check the pwd");
+} 
+</script> 
 <%
  String userName = request.getParameter("userName"); 
   String password = request.getParameter("password"); 
@@ -21,11 +25,13 @@ st=con.createStatement();
 	if (rs.next()) 
 		{ 
 			session.setAttribute("userid", userName); 
-			response.sendRedirect("home.jsp"); 
+			response.sendRedirect("success.jsp"); 
 		} 
 	else 
 		{ 
-			out.println("Invalid password <a href='index.jsp'>try again</a>"); 
+			response.sendRedirect("/LoginApp");
+			%>
+			<script type="text/javascript"> window.onload = alertName; </script>
+			<%
 } 
-con.close();
 %>
