@@ -1,47 +1,48 @@
+<%@page contentType="text/html" pageEncoding="UTF-8" import="java.net.InetAddress"%> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>Welcome to Home Page</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
+
 	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
-<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
-<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-<!--===============================================================================================-->	
 	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
-<!--===============================================================================================-->
 </head>
 
 	<div class="limiter">
+		<div class="container-login100" style="background-image: url('images/img-01.jpg'); padding-left: 950px;padding-bottom: 950px;">
 
-		<div class="container-login100" style="background-image: url('images/img-01.jpg');">
-
-
-
+				<div  class="container-welcomelogin">
+	
+			<h3><p align="right">Welcome <%=session.getAttribute("userid")%> <br/><br/><a href='logout.jsp'>Log out</a></p></h3>
+</div>
 <% if ((session.getAttribute("userName") == null) || (session.getAttribute("userName") == "")) { %> 
-<p align="right">Welcome <%=session.getAttribute("userid")%> <br/><a href='logout.jsp'>Log out</a></p>
 
-		
 <%} else { %> 
 
 You are not logged in<br/> <a href="/LoginApp">Please Login</a> 
 
 <% } %>
 
+</div>
+		<div style="padding-left: 950px;padding-bottom: 950px;">
+<h3> Server Side IP Address </h3><br>
+<%String ip = "";
+InetAddress inetAddress = InetAddress.getLocalHost();
+ip = inetAddress.getHostAddress();
+out.println("Server Host Name :: "+inetAddress.getHostName());%><br>
+<%out.println("Server IP Address :: "+ip);%>
 
-		</div>
-	</div>
-
-
+<h3> Client Side IP Address </h3><br>
+<%out.print( "Client IP Address :: " + request.getRemoteAddr() ); %><br>
+<%out.print( "Client Name Host :: "+ request.getRemoteHost() );%><br> 	
+</div>	
+</div>
