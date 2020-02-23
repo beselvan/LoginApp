@@ -19,10 +19,8 @@
 
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('images/img-01.jpg'); padding-left: 950px;padding-bottom: 950px;">
-
-				<div  class="container-welcomelogin">
-	
-			<h3><p align="right">Welcome <%=session.getAttribute("userid")%> <br/><br/><a href='logout.jsp'>Log out</a></p></h3>
+			<div  class="container-welcomelogin">
+				<p style="border-right-style: solid;border-right-width: -1000px;margin-left: -1000px;font-size: 24px;line-height: 1.3;letter-spacing: 0.133em;font-weight: 900;font-style: normal;" align="right">Welcome <%=session.getAttribute("userid")%> <br/><a href="logout.jsp">Log out</a></p>
 </div>
 <% if ((session.getAttribute("userName") == null) || (session.getAttribute("userName") == "")) { %> 
 
