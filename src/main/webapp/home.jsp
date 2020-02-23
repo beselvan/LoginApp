@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login V12</title>
+	<title>Welcome to Home Page</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -36,7 +36,7 @@
 		
 <%} else { %> 
 
-You are not logged in<br/> <a href="index.jsp">Please Login</a> 
+You are not logged in<br/> <a href="/LoginApp">Please Login</a> 
 
 <% } %>
 
