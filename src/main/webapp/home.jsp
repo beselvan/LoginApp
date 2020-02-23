@@ -16,11 +16,11 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
-
+<body>
 	<div class="limiter">
-		<div class="container-login100" style="background-image: url('images/img-01.jpg'); padding-left: 950px;padding-bottom: 950px;">
-			<div  class="container-welcomelogin">
-				<p style="border-right-style: solid;border-right-width: -1000px;margin-left: -1000px;font-size: 24px;line-height: 1.3;letter-spacing: 0.133em;font-weight: 900;font-style: normal;" align="right">Welcome <%=session.getAttribute("userid")%> <br/><a href="logout.jsp">Log out</a></p>
+		<div class="container-login100" style="background-image: url('images/img-01.jpg');">
+			<div>
+				<p style="border-right-style: solid;border-right-width: -1000px;font-size: 24px;line-height: 1.3;letter-spacing: 0.133em;font-weight: 900;font-style: normal;margin-bottom: 450px;margin-left: 1000px;" align="right">Welcome <%=session.getAttribute("userid")%> <br/><a href="logout.jsp">Log out</a></p>
 </div>
 <% if ((session.getAttribute("userName") == null) || (session.getAttribute("userName") == "")) { %> 
 
@@ -31,16 +31,13 @@ You are not logged in<br/> <a href="/LoginApp">Please Login</a>
 <% } %>
 
 </div>
-		<div style="padding-left: 950px;padding-bottom: 950px;">
-<h3> Server Side IP Address </h3><br>
-<%String ip = "";
-InetAddress inetAddress = InetAddress.getLocalHost();
-ip = inetAddress.getHostAddress();
-out.println("Server Host Name :: "+inetAddress.getHostName());%><br>
-<%out.println("Server IP Address :: "+ip);%>
 
-<h3> Client Side IP Address </h3><br>
-<%out.print( "Client IP Address :: " + request.getRemoteAddr() ); %><br>
-<%out.print( "Client Name Host :: "+ request.getRemoteHost() );%><br> 	
-</div>	
+	
+
 </div>
+
+
+
+</body>
+
+
