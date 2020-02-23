@@ -27,4 +27,5 @@ st=con.createStatement();
 	else { 
 		response.sendRedirect("index.jsp"); 
 		} 
+con.close();
 %>
