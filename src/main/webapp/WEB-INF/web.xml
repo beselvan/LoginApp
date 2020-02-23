@@ -4,4 +4,12 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+ 
+
+<servlet>
+<servlet-name>userRegistration.jsp</servlet-name>
+<jsp-file>userRegistration.jsp</servlet-name>
+<load-on-startup>1</load-on-startup>
+</servlet>  
+
 </web-app>
