@@ -50,6 +50,7 @@
     </plugins>
   </configuration>
 </plugin>
+</plugins>
   <build>
     <finalName>LoginApp</finalName>
   </build>
