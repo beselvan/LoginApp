@@ -30,9 +30,7 @@ st=con.createStatement();
 	else 
 		{ 
 
-			%>
-			<script type="text/javascript"> window.onload = alertName; </script>
-			<%
+			
 			response.sendRedirect("/LoginApp");
 } 
 %>
