@@ -22,7 +22,7 @@ st=con.createStatement();
 	
 	int i = st.executeUpdate("insert into USER(first_name, last_name, email, username, password, regdate) values ('" + firstName + "','" + lastName + "','" + email + "','" + userName + "','" + password + "', CURDATE())");
 	if (i > 0) { 
-				response.sendRedirect("welcome.jsp"); 
+				response.sendRedirect("home.jsp"); 
 			} 
 	else { 
 		response.sendRedirect("index.jsp"); 
