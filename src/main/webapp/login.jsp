@@ -33,6 +33,6 @@ st=con.createStatement();
 			%>
 			<script type="text/javascript"> window.onload = alertName; </script>
 			<%
-							//response.sendRedirect("/LoginApp");
+			response.sendRedirect("/LoginApp");
 } 
 %>
