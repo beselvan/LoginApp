@@ -25,7 +25,7 @@ st=con.createStatement();
 	if (rs.next()) 
 		{ 
 			session.setAttribute("userid", userName); 
-			response.sendRedirect("success.jsp"); 
+			response.sendRedirect("home.jsp"); 
 		} 
 	else 
 		{ 
@@ -33,6 +33,6 @@ st=con.createStatement();
 			%>
 			<script type="text/javascript"> window.onload = alertName; </script>
 			<%
-							response.sendRedirect("/LoginApp");
+							//response.sendRedirect("/LoginApp");
 } 
 %>
