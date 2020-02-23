@@ -27,6 +27,7 @@
  		<version>5.1.30</version> 
 	</dependency> 
   </dependencies>
+<plugins>  
 	<plugin>
   <groupId>org.apache.maven.plugins</groupId>
   <artifactId>maven-pmd-plugin</artifactId>
