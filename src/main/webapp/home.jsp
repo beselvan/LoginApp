@@ -20,16 +20,16 @@
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('images/img-01.jpg');">
 			<div>
-				<p style="border-right-style: solid;border-right-width: -1000px;font-size: 24px;line-height: 1.3;letter-spacing: 0.133em;font-weight: 900;font-style: normal;margin-bottom: 450px;margin-left: 1000px;" align="right">Welcome <%=session.getAttribute("userid")%> <br/><a href="logout.jsp">Log out</a></p>
+				<p style="border-right-width: -1000px;font-size: 24px;line-height: 1.3;letter-spacing: 0.133em;font-weight: 900;font-style: normal;margin-bottom: 450px;margin-left: 1000px;" align="right"><font color="white">Welcome <%=session.getAttribute("userid")%> <br/><a href="logout.jsp">Log out</a></font></p>
 			</div>
-		<p>
+		<p><font color="white">
 		<%String ip = "";
 		InetAddress inetAddress = InetAddress.getLocalHost();
 		ip = inetAddress.getHostAddress();
 		out.println("Server Host Name :: "+inetAddress.getHostName());%><br>
 		<%out.println("Server IP Address :: "+ip);%></br>
 		<%out.print( "Client IP Address :: " + request.getRemoteAddr() ); %>
-		</p>
+		</font></p>
 
 
 <% if ((session.getAttribute("userName") == null) || (session.getAttribute("userName") == "")) { %> 
@@ -40,5 +40,3 @@ You are not logged in<br/> <a href="/LoginApp">Please Login</a>
 </div>
 </div>
 </body>
-
-
