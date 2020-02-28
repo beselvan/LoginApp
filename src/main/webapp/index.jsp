@@ -68,7 +68,7 @@
 
 					<div class="text-center w-full">
 						<a class="txt1" href="register.jsp">
-							Create new account
+							Create New Account
 							<i class="fa fa-long-arrow-right"></i>			
 							
 							
