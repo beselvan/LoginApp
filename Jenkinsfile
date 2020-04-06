@@ -11,13 +11,14 @@ pipeline {
         stage('Building Application') {
             steps {
                 echo 'Building Application'
-		mvn package
+		sh "mvn package"
 		
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying Application'
+		sh "docker-compose up -d"
 		
             }
         }
