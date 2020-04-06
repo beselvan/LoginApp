@@ -11,6 +11,7 @@ pipeline {
         stage('Building Application') {
             steps {
                 echo 'Building Application'
+		mvn package
 		
             }
         }
