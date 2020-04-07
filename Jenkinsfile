@@ -19,7 +19,8 @@ pipeline {
             steps {
                 echo 'Docker Deploying Application'
 		sh "cd $WORKSPACE"
-		sh "sudo docker-compose up -d"
+		sh "whoami"
+		sh "docker-compose up -d"
 		
             }
         }
