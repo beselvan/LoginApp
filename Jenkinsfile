@@ -20,6 +20,7 @@ pipeline {
                 echo 'Docker Deploying Application'
 		sh "cd $WORKSPACE"
 		sh "whoami"
+		sh "docker-compose down"
 		sh "docker-compose up -d"
 		
             }
