@@ -2,14 +2,14 @@ version: '3'
 services:
   web:
     container_name: tomcat
-    build: ./Dockerfile_tomcat
+    build: .
     restart: always
     ports:
      - "8081:8080"
     links:
      - dbserver
   dbserver:
-    build: ./Dockerfile_mysql
+    build: .
     container_name: mysql
     restart: always
     ports:
