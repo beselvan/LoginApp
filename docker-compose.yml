@@ -9,7 +9,7 @@ services:
     links:
      - dbserver
   dbserver:
-    build: .
+    build: ./mysql
     container_name: mysql
     restart: always
     ports:
