@@ -7,9 +7,11 @@ alert("pls check the pwd");
 </script> 
 <%
  String userName = request.getParameter("userName"); 
-  String password = request.getParameter("password"); 
+ String password = request.getParameter("password"); 
  
- 
+HttpSession sess = request.getSession(); 
+sess.setAttribute("userName", userName);
+sess.setAttribute("password", password);
  
 Context ctx = new InitialContext();
 DataSource ds = (DataSource)ctx.lookup("java:comp/env/jdbc/MyDB");
@@ -24,7 +26,9 @@ st=con.createStatement();
  rs = st.executeQuery("select * from user where username='" + userName + "' and password='" + password + "'");
 	if (rs.next()) 
 		{ 
-			session.setAttribute("userid", userName); 
+
+		    st.executeUpdate("insert into logindetails values('" + userName + "', CURDATE()  ,  CURTIME()  ,   CURDATE()  ,  CURTIME() ,'active')");
+
 			response.sendRedirect("home.jsp"); 
 		} 
 	else 

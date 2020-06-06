@@ -17,12 +17,22 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
+
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('images/img-01.jpg');">
 			<div>
-				<p style="border-right-width: -1000px;font-size: 24px;line-height: 1.3;letter-spacing: 0.133em;font-weight: 900;font-style: normal;margin-bottom: 450px;margin-left: 1000px;" align="right"><font color="white">Welcome <%=session.getAttribute("userid")%> <br/><a href="logout.jsp">Log out</a></font></p>
+				<p style="border-right-width: -1000px;font-size: 24px;line-height: 1.3;letter-spacing: 0.133em;font-weight: 900;font-style: normal;margin-bottom: 450px;margin-left: 1000px;" align="right">
+				<font color="white">Welcome <%=session.getAttribute("userName")%> <br/>
+				<a href="logout.jsp">Log out</a></font></p>
 			</div>
-		<p><font color="white">
+
+			<div>
+				<p style="margin-bottom: 40px;margin-right: 40px;margin-left: -10px; margin-top: -300px;"><font color="white" style=" padding-right: -200; padding-left: 250px; ">Generate Login Report</font></p>
+			</div>
+
+
+
+		<p style="padding-right: -200"><font color="white">
 		<%String ip = "";
 		InetAddress inetAddress = InetAddress.getLocalHost();
 		ip = inetAddress.getHostAddress();
@@ -32,10 +42,6 @@
 		</font></p>
 
 
-<% if ((session.getAttribute("userName") == null) || (session.getAttribute("userName") == "")) { %> 
-<%} else { %> 
-You are not logged in<br/> <a href="/LoginApp">Please Login</a> 
-<% } %>
 
 </div>
 </div>

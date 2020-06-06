@@ -20,7 +20,7 @@ st=con.createStatement();
 	
 	
 	
-	int i = st.executeUpdate("insert into USER(first_name, last_name, email, username, password, regdate) values ('" + firstName + "','" + lastName + "','" + email + "','" + userName + "','" + password + "', CURDATE())");
+	int i = st.executeUpdate("insert into user(first_name, last_name, email, username, password, regdate) values ('" + firstName + "','" + lastName + "','" + email + "','" + userName + "','" + password + "', CURDATE())");
 	if (i > 0) { 
 				
 				response.sendRedirect("/LoginApp"); 
