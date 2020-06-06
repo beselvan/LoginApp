@@ -2,14 +2,14 @@ version: '3'
 services:
   web:
     container_name: tomcat
-    build: .
+    build: ./tomcat/
     restart: always
     ports:
      - "8081:8080"
     links:
      - dbserver
   dbserver:
-    image: tamileng/login_mysql:1.0
+    build: ./mysql/
     container_name: mysql
     restart: always
     ports:
