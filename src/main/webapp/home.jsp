@@ -76,12 +76,12 @@ st=con.createStatement();
 
             <% 
 				
+
+			} 
 rs.close(); 
 st.close(); 
 con.close(); 
-
-
-			} %>
+%>
 
 			</table></font></p>
 
