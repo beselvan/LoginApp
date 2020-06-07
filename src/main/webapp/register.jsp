@@ -54,7 +54,7 @@
 						</span>
 					</div>
 
-					<div class="wrap-input100 validate-input m-b-10" data-validate = "Username is required">
+					<div class="wrap-input100 validate-input m-b-10">
 						<input class="input100" type="text" name="email" placeholder="E-Mail">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">

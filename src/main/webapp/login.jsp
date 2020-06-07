@@ -6,7 +6,7 @@ alert("pls check the pwd");
 } 
 </script> 
 <%
-try {
+
  String userName = request.getParameter("userName"); 
  String password = request.getParameter("password"); 
  
@@ -20,8 +20,6 @@ Class.forName("com.mysql.jdbc.Driver");
 Connection con = ds.getConnection();
 System.out.println(con);
 Statement st=con.createStatement();
-con = ds.getConnection();
-st=con.createStatement();
 
  ResultSet rs; 
  rs = st.executeQuery("select * from user where username='" + userName + "' and password='" + password + "'");
@@ -39,14 +37,9 @@ st=con.createStatement();
 			response.sendRedirect("/LoginApp");
 } 
 
-} catch(Exception e) {
-	} 
-	
-	finally {
-    try { if (rs != null) rs.close(); } catch (Exception e) {};
-    try { if (st != null) st.close(); } catch (Exception e) {};
-    try { if (con != null) con.close(); } catch (Exception e) {};
-}
+st.close(); 
+con.close(); 
+
 
 %>
 

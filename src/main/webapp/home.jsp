@@ -43,7 +43,6 @@
 <%
 
 
-try {
 
 
 
@@ -77,15 +76,10 @@ st=con.createStatement();
 
             <% 
 				
-			
-} catch(Exception e) {
+rs.close(); 
+st.close(); 
+con.close(); 
 
-
-} finally {
-    try { if (rs != null) rs.close(); } catch (Exception e) {};
-    try { if (st != null) st.close(); } catch (Exception e) {};
-    try { if (con != null) con.close(); } catch (Exception e) {};
-}
 
 			} %>
 

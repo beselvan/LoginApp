@@ -4,8 +4,6 @@
 
 
 
-try {
-
 
 
 	String userName = request.getParameter("userName"); 
@@ -21,9 +19,7 @@ DataSource ds = (DataSource)ctx.lookup("java:comp/env/jdbc/MyDB");
 Class.forName("com.mysql.jdbc.Driver"); 
 Connection con = ds.getConnection();
 Statement st=con.createStatement();
-con = ds.getConnection();
-st=con.createStatement();
-	
+
 	
 	
 	
@@ -38,13 +34,10 @@ st=con.createStatement();
 		} 
 
 
-} catch(Exception e) {
 
-
-} finally {
  
-    try { if (st != null) st.close(); } catch (Exception e) {};
-    try { if (con != null) con.close(); } catch (Exception e) {};
-}
+st.close(); 
+con.close(); 
+
 %>
 

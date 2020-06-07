@@ -5,7 +5,6 @@
 
 
 <%
-try {
 
 
 String userName = session.getAttribute("userName").toString();
@@ -30,12 +29,7 @@ session.invalidate();
 
 response.sendRedirect("/LoginApp");
 
-} catch(Exception e) {
-
-
-} finally {
-     try { if (st != null) st.close(); } catch (Exception e) {};
-    try { if (con != null) con.close(); } catch (Exception e) {};
-}
+st.close(); 
+con.close(); 
 
 %>
