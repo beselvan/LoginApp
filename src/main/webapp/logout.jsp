@@ -34,8 +34,8 @@ response.sendRedirect("/LoginApp");
 
 
 } finally {
-     try { if (st != null) stmt.close(); } catch (Exception e) {};
-    try { if (con != null) conn.close(); } catch (Exception e) {};
+     try { if (st != null) st.close(); } catch (Exception e) {};
+    try { if (con != null) con.close(); } catch (Exception e) {};
 }
 
 %>
