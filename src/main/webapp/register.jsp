@@ -55,7 +55,7 @@
 					</div>
 
 					<div class="wrap-input100 validate-input m-b-10">
-						<input class="input100" type="text" name="email" placeholder="E-Mail">
+						<input class="input100" type="text" name="email1" placeholder="E-Mail">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-user"></i>
