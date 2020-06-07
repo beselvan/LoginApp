@@ -1,6 +1,13 @@
 <%@ page language="java" import="java.io.IOException,java.io.IOException,java.sql.Connection,java.sql.ResultSet,java.sql.Statement,java.util.*,javax.naming.*,javax.servlet.*,javax.servlet.http.*,javax.sql.*" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <% 
+
+
+
+try {
+
+
+
 	String userName = request.getParameter("userName"); 
 	String password = request.getParameter("password"); 
 	String firstName = request.getParameter("firstName"); 
@@ -29,6 +36,15 @@ st=con.createStatement();
 	else { 
 		response.sendRedirect("index.jsp"); 
 		} 
-con.close();
+
+
+} catch(Exception e) {
+
+
+} finally {
+ 
+    try { if (st != null) stmt.close(); } catch (Exception e) {};
+    try { if (con != null) conn.close(); } catch (Exception e) {};
+}
 %>
 

@@ -4,7 +4,11 @@
 
 
 
-<%String userName = session.getAttribute("userName").toString();
+<%
+try {
+
+
+String userName = session.getAttribute("userName").toString();
 
 
 System.out.println(userName);
@@ -17,7 +21,7 @@ Statement st=con.createStatement();
 con = ds.getConnection();
 st=con.createStatement();
 
-st.executeUpdate("update logindetails set logoutdate=CURDATE(), logouttime=CURTIME(), session='completed' where username='" + userName + "' and session='active';");
+st.executeUpdate("update logindetails set logoutdate=CURDATE(), logouttime=CURTIME(), session='completed' where username='" + userName + "' and session='current';");
 System.out.println(userName);
 
 
@@ -25,4 +29,13 @@ session.setAttribute("userName", null);
 session.invalidate();
 
 response.sendRedirect("/LoginApp");
+
+} catch(Exception e) {
+
+
+} finally {
+     try { if (st != null) stmt.close(); } catch (Exception e) {};
+    try { if (con != null) conn.close(); } catch (Exception e) {};
+}
+
 %>

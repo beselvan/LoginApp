@@ -1,8 +1,10 @@
-<%@page contentType="text/html" pageEncoding="UTF-8" import="java.net.InetAddress"%> 
+<%@ page language="java" import="java.io.IOException,java.io.IOException,java.sql.Connection,java.sql.ResultSet,java.sql.Statement,java.util.*,javax.naming.*,javax.servlet.*,javax.servlet.http.*,javax.sql.*,java.net.InetAddress" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Welcome to Home Page</title>
+	<title>Welcome Home</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -27,10 +29,67 @@
 			</div>
 
 			<div>
-				<p style="margin-bottom: 40px;margin-right: 40px;margin-left: -10px; margin-top: -300px;"><font color="white" style=" padding-right: -200; padding-left: 250px; ">Generate Login Report</font></p>
-			</div>
+				<p style="margin-bottom: 40px;margin-right: 40px;margin-left: -10px; margin-top: -300px;"><font color="white" style=" padding-right: -200; padding-left: 250px; ">Login Report
+
+            <table border=1>
+    		    <tr>
+                <th>Login Date</th>
+                <th>Login Time</th>
+                <th>Logout Date</th>
+                <th>Logout Time</th>
+                <th>Session Status</th>
+            </tr>
+
+<%
 
 
+try {
+
+
+
+String userName=session.getAttribute("userName").toString();
+ 
+Context ctx = new InitialContext();
+DataSource ds = (DataSource)ctx.lookup("java:comp/env/jdbc/MyDB");
+Class.forName("com.mysql.jdbc.Driver"); 
+Connection con = ds.getConnection();
+Statement st=con.createStatement();
+con = ds.getConnection();
+st=con.createStatement();
+
+ ResultSet rs; 
+ rs = st.executeQuery("select * from logindetails where username='" + userName + "'");
+
+ System.out.println(rs);
+
+
+            while(rs.next()){ 
+				%>
+
+            <tr>
+
+                <td> <%= rs.getString(2) %></td>
+                <td> <%= rs.getString(3) %></td>
+                <td> <%= rs.getString(4) %></td>
+                <td> <%= rs.getString(5) %></td>
+                <td> <%= rs.getString(6) %></td>
+            </tr>
+
+            <% 
+				
+			
+} catch(Exception e) {
+
+
+} finally {
+    try { if (rs != null) rs.close(); } catch (Exception e) {};
+    try { if (st != null) stmt.close(); } catch (Exception e) {};
+    try { if (con != null) conn.close(); } catch (Exception e) {};
+}
+
+			} %>
+
+			</table></font></p>
 
 		<p style="padding-right: -200"><font color="white">
 		<%String ip = "";
@@ -41,8 +100,7 @@
 		<%out.print( "Client IP Address :: " + request.getRemoteAddr() ); %>
 		</font></p>
 
-
-
 </div>
 </div>
 </body>
+

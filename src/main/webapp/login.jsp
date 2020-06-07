@@ -6,6 +6,7 @@ alert("pls check the pwd");
 } 
 </script> 
 <%
+try {
  String userName = request.getParameter("userName"); 
  String password = request.getParameter("password"); 
  
@@ -27,7 +28,7 @@ st=con.createStatement();
 	if (rs.next()) 
 		{ 
 
-		    st.executeUpdate("insert into logindetails values('" + userName + "', CURDATE()  ,  CURTIME()  ,   CURDATE()  ,  CURTIME() ,'active')");
+		    st.executeUpdate("insert into logindetails values('" + userName + "', CURDATE()  ,  CURTIME()  ,   CURDATE()  ,  CURTIME() ,'current')");
 
 			response.sendRedirect("home.jsp"); 
 		} 
@@ -37,4 +38,15 @@ st=con.createStatement();
 			
 			response.sendRedirect("/LoginApp");
 } 
+
+} catch(Exception e) {
+	} 
+	
+	finally {
+    try { if (rs != null) rs.close(); } catch (Exception e) {};
+    try { if (st != null) stmt.close(); } catch (Exception e) {};
+    try { if (con != null) conn.close(); } catch (Exception e) {};
+}
+
 %>
+
