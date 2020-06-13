@@ -10,7 +10,6 @@
 String userName = session.getAttribute("userName").toString();
 
 
-System.out.println(userName);
 Context ctx = new InitialContext();
 DataSource ds = (DataSource)ctx.lookup("java:comp/env/jdbc/MyDB");
 Class.forName("com.mysql.cj.jdbc.Driver"); 
@@ -21,7 +20,6 @@ con = ds.getConnection();
 st=con.createStatement();
 
 st.executeUpdate("update logindetails set logoutdate=CURDATE(), logouttime=CURTIME(), session='completed' where username='" + userName + "' and session='current';");
-System.out.println(userName);
 
 
 session.setAttribute("userName", null);
