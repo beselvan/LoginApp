@@ -16,7 +16,7 @@
 	
 Context ctx = new InitialContext();
 DataSource ds = (DataSource)ctx.lookup("java:comp/env/jdbc/MyDB");
-Class.forName("com.mysql.jdbc.Driver"); 
+Class.forName("com.mysql.cj.jdbc.Driver"); 
 Connection con = ds.getConnection();
 Statement st=con.createStatement();
 

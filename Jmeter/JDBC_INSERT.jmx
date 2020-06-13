@@ -36,7 +36,7 @@
           <stringProp name="connectionAge">5000</stringProp>
           <stringProp name="checkQuery"></stringProp>
           <stringProp name="dbUrl">jdbc:mysql://34.68.146.73:3306/demo</stringProp>
-          <stringProp name="driver">com.mysql.jdbc.Driver</stringProp>
+          <stringProp name="driver">com.mysql.cj.jdbc.Driver</stringProp>
           <stringProp name="username">root</stringProp>
           <stringProp name="password">root</stringProp>
         </JDBCDataSource>
