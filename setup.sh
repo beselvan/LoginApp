@@ -34,8 +34,8 @@ cat /var/lib/jenkins/secrets/initialAdminPassword
 
 
 git clone https://github.com/beselvan/LoginApp.git
-mvn -f /home/mycloud245/LoginApp/pom.xml package
-docker-compose -f /home/mycloud245/LoginApp/docker-compose.yml  up -d
+mvn -f ~/LoginApp/pom.xml package
+docker-compose -f ~/LoginApp/docker-compose.yml  up -d
 
 #------------------------------------------------------------------------------------------
 # Kubernetes
