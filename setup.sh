@@ -4,17 +4,37 @@ yum update -y
 yum upgrade -y
 yum install -y git zip unzip tar net-tools ntsysv java-1.8.0-openjdk.x86_64 maven wget curl
 #------------------------------------------------------------------------------------------
+
 # Docker 
 
 sudo yum install -y yum-utils
 yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-yum install -y https://download.docker.com/linux/centos/7/x86_64/stable/Packages/containerd.io-1.2.6-3.3.el7.x86_64.rpm
-yum install docker-ce docker-ce-cli -y
-service docker start
+yum install -y docker-ce docker-ce-cli
+mkdir /etc/docker
+
+cat > /etc/docker/daemon.json <<EOF
+{
+  "exec-opts": ["native.cgroupdriver=systemd"],
+  "log-driver": "json-file",
+  "log-opts": {
+    "max-size": "100m"
+  },
+  "storage-driver": "overlay2",
+  "storage-opts": [
+    "overlay2.override_kernel_check=true"
+  ]
+}
+EOF
+
+mkdir -p /etc/systemd/system/docker.service.d
+systemctl daemon-reload
+systemctl restart docker
 systemctl enable docker
+
 sudo curl -L "https://github.com/docker/compose/releases/download/1.27.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 chmod 755 /usr/local/bin/docker-compose
 ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+
 
 #------------------------------------------------------------------------------------------
 # Jenkins
@@ -49,10 +69,9 @@ gpgcheck=1
 repo_gpgcheck=1
 gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 EOF
-
+sudo setenforce 0
+sudo sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
 yum install -y kubeadm kubelet kubectl
-
+sudo systemctl enable --now kubelet
 
 #------------------------------------------------------------------------------------------
-
-
